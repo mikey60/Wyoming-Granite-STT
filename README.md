@@ -13,6 +13,6 @@ docker run -d --name wyoming-granite-stt --restart unless-stopped \
   wyoming-granite-stt:latest \
   --uri tcp://0.0.0.0:10300 --device cuda --dtype float16 --num-beams 1 --language en-US
   ```
-  **Note:** I run this command from the wyoming-granite-stt folder.  I specify --gpus device=1 so it runs on my GTX 1070. The typical response time is 0.5 seconds with "num-beams 1". This allows me to use the entire VRAM of the RTX 3090 for the LLM. I feel that granite 4.0 1B is more accurate than faster-whisper with the Systran/faster-whisper-large-v3 model and tboby/wyoming-onnx-asr-gpu.  I have started testing with "num-beams 2" to see if that helps with an infrequent word error. Tis increases the response time to ~0.75 seconds.  With the "dtype float16", the model uses ~ 4GB of VRAM
+  **Note:** I run this command from the wyoming-granite-stt folder.  I specify --gpus device=1 so it runs on my GTX 1070. The typical response time is 0.5 seconds with "num-beams 1". This allows me to use the entire VRAM of the RTX 3090 for the LLM. I feel that granite 4.0 1B is more accurate than faster-whisper with the Systran/faster-whisper-large-v3 model and tboby/wyoming-onnx-asr-gpu.  I have started testing with "num-beams 2" to see if that helps with an infrequent word error. This increases the response time to ~0.75 seconds.  With the "dtype float16", the model uses ~ 4GB of VRAM.
 
 
